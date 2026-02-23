@@ -2,34 +2,21 @@
 const services = [
   {
     bg: '#DBEAFE',
-    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
-      <path d="M32 16C32 16 20 24 20 33C20 39.6 25.4 45 32 45C38.6 45 44 39.6 44 33C44 24 32 16 32 16Z" fill="#3B82F6" fill-opacity="0.8"/>
-      <path d="M26 34H38M32 28V40" stroke="white" stroke-width="3" stroke-linecap="round"/>
-    </svg>`,
-    title: 'Well-Child Checkups',
-    description: 'Routine growth monitoring, developmental assessments, and health screenings at every stage of your child\'s journey.',
+    image: '/images/Paediatric-Treatment.avif',
+    title: 'General Pediatrics and Neonatology',
+    description: 'Comprehensive care for newborns, infants, and children — from routine check-ups to managing complex medical conditions at every stage of early life.',
   },
   {
     bg: '#D1FAE5',
-    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
-      <rect x="28" y="18" width="8" height="28" rx="4" fill="#10B981" fill-opacity="0.8"/>
-      <rect x="18" y="28" width="28" height="8" rx="4" fill="#10B981" fill-opacity="0.8"/>
-      <circle cx="32" cy="46" r="4" fill="#059669"/>
-    </svg>`,
-    title: 'Vaccinations',
-    description: 'Complete immunisation schedules following national guidelines to keep your child protected against preventable diseases.',
+    image: '/images/vaccination.avif',
+    title: 'Vaccination and Well Baby Care',
+    description: 'Complete immunisation schedules following national guidelines, alongside regular well-baby visits to monitor growth, development, and overall health.',
   },
   {
     bg: '#FFE4E1',
-    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
-      <path d="M32 44L27 39C22 34 18 30.4 18 26C18 21.6 21.6 18 26 18C28.4 18 30.8 19.1 32 21C33.2 19.1 35.6 18 38 18C42.4 18 46 21.6 46 26C46 30.4 42 34 37 39L32 44Z" fill="#E8856A" fill-opacity="0.8"/>
-      <path d="M24 28 L28 32 L40 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>`,
-    title: 'Sick Visits',
-    description: 'Prompt, compassionate care for fevers, infections, and childhood illnesses when they arise—we\'re here when you need us most.',
+    image: '/images/childnutrition.avif',
+    title: 'Nutrition, Growth and Development Assessment',
+    description: 'Expert evaluation of your child\'s nutritional needs, growth milestones, and developmental progress to ensure they thrive at every age.',
   },
 ];
 ---
@@ -54,7 +41,13 @@ const services = [
             class="h-48 flex items-center justify-center"
             style={`background-color: ${service.bg};`}
           >
-            <Fragment set:html={service.icon} />
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-md">
+              <img
+                src={service.image}
+                alt={service.title}
+                class="w-full h-full object-cover"
+              />
+            </div>
           </div>
           <!-- Content -->
           <div class="p-6">
