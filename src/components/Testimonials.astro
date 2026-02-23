@@ -1,0 +1,75 @@
+---
+const testimonials = [
+  {
+    initials: 'PS',
+    avatarBg: '#FDE8D8',
+    avatarText: '#E8856A',
+    name: 'Priya Sharma',
+    role: 'Mother of 2',
+    quote: 'Dr. Shilpa has been our family\'s paediatrician for 5 years. Her patience and expertise are truly unmatched. We feel so lucky to have found her.',
+  },
+  {
+    initials: 'RM',
+    avatarBg: '#DBEAFE',
+    avatarText: '#3B82F6',
+    name: 'Rahul Mehta',
+    role: 'Father',
+    quote: 'We always leave appointments feeling reassured and well-informed. The clinic is so warm and welcoming — my daughter actually loves visiting!',
+  },
+  {
+    initials: 'AK',
+    avatarBg: '#D1FAE5',
+    avatarText: '#10B981',
+    name: 'Ananya Krishnan',
+    role: 'Mother',
+    quote: 'From newborn care to school-age checkups, Dr. Shilpa has been a trusted partner every step of the way. Couldn\'t imagine a better doctor for my son.',
+  },
+];
+---
+
+<section id="testimonials" class="py-20 px-6 bg-white/50">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <p class="text-[#E8856A] text-sm font-medium tracking-widest uppercase mb-3">From our patients' families</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#2D2A26]" style="font-family: 'Nunito', sans-serif;">
+        What Parents Say
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 hover:shadow-md transition-shadow">
+          <!-- Stars -->
+          <div class="flex gap-1 text-[#E8856A]">
+            {'★★★★★'.split('').map((star) => (
+              <span>{star}</span>
+            ))}
+          </div>
+
+          <!-- Quote -->
+          <p class="text-[#7A7570] leading-relaxed flex-1">
+            "{t.quote}"
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
+            <div
+              class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+              style={`background-color: ${t.avatarBg}; color: ${t.avatarText};`}
+            >
+              {t.initials}
+            </div>
+            <div>
+              <p class="font-semibold text-[#2D2A26] text-sm" style="font-family: 'Nunito', sans-serif;">{t.name}</p>
+              <p class="text-[#7A7570] text-xs">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

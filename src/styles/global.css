@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #F5F0EA;
+  --color-coral: #E8856A;
+  --color-charcoal: #2D2A26;
+  --color-muted: #7A7570;
+  --color-card: #FFFFFF;
+  --color-card-bg: #EEF7F4;
+
+  --font-nunito: 'Nunito', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+html {
+  background-color: #F5F0EA;
+  color: #2D2A26;
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+}

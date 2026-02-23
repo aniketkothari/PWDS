@@ -1,0 +1,73 @@
+---
+const services = [
+  {
+    bg: '#DBEAFE',
+    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
+      <path d="M32 16C32 16 20 24 20 33C20 39.6 25.4 45 32 45C38.6 45 44 39.6 44 33C44 24 32 16 32 16Z" fill="#3B82F6" fill-opacity="0.8"/>
+      <path d="M26 34H38M32 28V40" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    </svg>`,
+    title: 'Well-Child Checkups',
+    description: 'Routine growth monitoring, developmental assessments, and health screenings at every stage of your child\'s journey.',
+  },
+  {
+    bg: '#D1FAE5',
+    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
+      <rect x="28" y="18" width="8" height="28" rx="4" fill="#10B981" fill-opacity="0.8"/>
+      <rect x="18" y="28" width="28" height="8" rx="4" fill="#10B981" fill-opacity="0.8"/>
+      <circle cx="32" cy="46" r="4" fill="#059669"/>
+    </svg>`,
+    title: 'Vaccinations',
+    description: 'Complete immunisation schedules following national guidelines to keep your child protected against preventable diseases.',
+  },
+  {
+    bg: '#FFE4E1',
+    icon: `<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="32" cy="32" r="28" fill="white" fill-opacity="0.6"/>
+      <path d="M32 44L27 39C22 34 18 30.4 18 26C18 21.6 21.6 18 26 18C28.4 18 30.8 19.1 32 21C33.2 19.1 35.6 18 38 18C42.4 18 46 21.6 46 26C46 30.4 42 34 37 39L32 44Z" fill="#E8856A" fill-opacity="0.8"/>
+      <path d="M24 28 L28 32 L40 24" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+    title: 'Sick Visits',
+    description: 'Prompt, compassionate care for fevers, infections, and childhood illnesses when they arise—we\'re here when you need us most.',
+  },
+];
+---
+
+<section id="services" class="py-20 px-6">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <p class="text-[#E8856A] text-sm font-medium tracking-widest uppercase mb-3">What we offer</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#2D2A26]" style="font-family: 'Nunito', sans-serif;">
+        Comprehensive Paediatric Care
+      </h2>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map((service) => (
+        <div class="rounded-3xl bg-white shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition-shadow">
+          <!-- Image Area -->
+          <div
+            class="h-48 flex items-center justify-center"
+            style={`background-color: ${service.bg};`}
+          >
+            <Fragment set:html={service.icon} />
+          </div>
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="text-xl font-bold text-[#2D2A26] mb-2" style="font-family: 'Nunito', sans-serif;">
+              {service.title}
+            </h3>
+            <p class="text-[#7A7570] leading-relaxed">
+              {service.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
