@@ -14,7 +14,7 @@ const testimonials = [
     avatarText: '#3B82F6',
     name: 'Harmind Singh Arora',
     role: 'Father',
-    quote: 'From the moment we met Dr. Shilpa Pandya, she put us at ease with her calm and reassuring demeanor. She took the time to listen to our daughter’s concerns and answered all of our questions in detail, making sure we understood everything. What impressed us the most about Dr. Shilpa was her caring and compassionate approach towards our daughter. She was patient and gentle with her, making sure she felt comfortable and at ease not just during her vaccinations but also when she was suffering with flu. She took the time to explain things in a way that our 2.5 year old daughter could understand, which helped to alleviate her fears and anxieties. Overall, we cannot recommend Dr. Shilpa Pandya highly enough. She is an outstanding pediatrician who goes above and beyond for her patients. If you are looking for a compassionate and caring pediatrician for your child, then look no further than Dr. Shilpa.',
+    quote: 'From the moment we met Dr. Shilpa Pandya, she put us at ease with her calm and reassuring demeanor. She took the time to listen to our daughter\'s concerns and answered all of our questions in detail, making sure we understood everything. What impressed us the most about Dr. Shilpa was her caring and compassionate approach towards our daughter. She was patient and gentle with her, making sure she felt comfortable and at ease not just during her vaccinations but also when she was suffering with flu. She took the time to explain things in a way that our 2.5 year old daughter could understand, which helped to alleviate her fears and anxieties. Overall, we cannot recommend Dr. Shilpa Pandya highly enough. She is an outstanding pediatrician who goes above and beyond for her patients. If you are looking for a compassionate and caring pediatrician for your child, then look no further than Dr. Shilpa.',
   },
   {
     initials: 'AT',
@@ -23,6 +23,46 @@ const testimonials = [
     name: 'Ayesha Tanveer',
     role: 'Mother',
     quote: 'Visited doctor Shilpa for my baby, she diagnosed my baby problem and treated accordingly. She is very friendly and helpful. Will definitely recommend her for others.',
+  },
+  {
+    initials: 'PM',
+    avatarBg: '#FCE4EC',
+    avatarText: '#E91E63',
+    name: 'Priya Majmudar',
+    role: 'Mother',
+    quote: 'Dr. Shilpa is an absolute gem! She has a natural ability to make children feel comfortable and at ease. My daughter, who used to be terrified of doctors, actually looks forward to her appointments now. Her thoroughness and gentle nature are truly commendable.',
+  },
+  {
+    initials: 'DK',
+    avatarBg: '#E3F2FD',
+    avatarText: '#1565C0',
+    name: 'Davashish Kothari',
+    role: 'Father',
+    quote: 'We have been visiting Dr. Shilpa for over two years now and the experience has been exceptional every single time. She is knowledgeable, patient, and always takes time to address all our concerns. Her advice on nutrition and development has been invaluable for our son\'s growth.',
+  },
+  {
+    initials: 'AJ',
+    avatarBg: '#E8F5E9',
+    avatarText: '#2E7D32',
+    name: 'Archita Jain',
+    role: 'Mother',
+    quote: 'What sets Dr. Shilpa apart is her holistic approach to child health. She doesn\'t just treat the symptoms but takes time to understand the root cause. Her clinic is well-maintained and the staff is very courteous. Highly recommended for all parents!',
+  },
+  {
+    initials: 'SG',
+    avatarBg: '#EDE7F6',
+    avatarText: '#6A1B9A',
+    name: 'Shalini Gupta',
+    role: 'Mother',
+    quote: 'Dr. Shilpa has been our family pediatrician for three years. Her expertise and warm personality make every visit a positive experience. She is always available for queries and her timely guidance has helped us navigate many challenging health situations with confidence.',
+  },
+  {
+    initials: 'PJ',
+    avatarBg: '#FFF3E0',
+    avatarText: '#E65100',
+    name: 'Priyal Jain',
+    role: 'Mother',
+    quote: 'Excellent doctor with a wonderful bedside manner. Dr. Shilpa is patient, thorough, and truly cares about her little patients. She explained every step of the treatment clearly and followed up to ensure my child was recovering well. Best pediatrician in the area!',
   },
 ];
 ---
@@ -38,38 +78,115 @@ const testimonials = [
       </h2>
     </div>
 
-    <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {testimonials.map((t) => (
-        <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 hover:shadow-md transition-shadow">
-          <!-- Stars -->
-          <div class="flex gap-1 text-[#E8856A]">
-            {'★★★★★'.split('').map((star) => (
-              <span>{star}</span>
-            ))}
-          </div>
+    <!-- Carousel -->
+    <div id="testimonial-carousel" class="relative">
 
-          <!-- Quote -->
-          <p class="text-[#7A7570] leading-relaxed flex-1">
-            "{t.quote}"
-          </p>
+      <!-- Slides container -->
+      <div class="relative min-h-[280px]">
+        {testimonials.map((t, i) => (
+          <div
+            data-slide={i}
+            class={`absolute inset-0 transition-opacity duration-[600ms] ease-in-out ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+          >
+            <div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col gap-5 hover:shadow-md transition-shadow h-full">
+              <!-- Stars -->
+              <div class="flex gap-1 text-[#E8856A]">
+                {'★★★★★'.split('').map((star) => (
+                  <span>{star}</span>
+                ))}
+              </div>
 
-          <!-- Author -->
-          <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
-            <div
-              class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
-              style={`background-color: ${t.avatarBg}; color: ${t.avatarText};`}
-            >
-              {t.initials}
-            </div>
-            <div>
-              <p class="font-semibold text-[#2D2A26] text-sm" style="font-family: 'Nunito', sans-serif;">{t.name}</p>
-              <p class="text-[#7A7570] text-xs">{t.role}</p>
+              <!-- Quote -->
+              <p class="text-[#7A7570] leading-relaxed flex-1">
+                "{t.quote}"
+              </p>
+
+              <!-- Author -->
+              <div class="flex items-center gap-3 pt-2 border-t border-gray-100">
+                <div
+                  class="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm flex-shrink-0"
+                  style={`background-color: ${t.avatarBg}; color: ${t.avatarText};`}
+                >
+                  {t.initials}
+                </div>
+                <div>
+                  <p class="font-semibold text-[#2D2A26] text-sm" style="font-family: 'Nunito', sans-serif;">{t.name}</p>
+                  <p class="text-[#7A7570] text-xs">{t.role}</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
+
+      <!-- Prev / Next arrow buttons -->
+      <button
+        id="prev-btn"
+        aria-label="Previous testimonial"
+        class="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-white shadow items-center justify-center text-[#7A7570] hover:text-[#E8856A] hover:shadow-md transition-all z-10"
+      >
+        &#8592;
+      </button>
+      <button
+        id="next-btn"
+        aria-label="Next testimonial"
+        class="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-white shadow items-center justify-center text-[#7A7570] hover:text-[#E8856A] hover:shadow-md transition-all z-10"
+      >
+        &#8594;
+      </button>
+
+      <!-- Navigation dots -->
+      <div class="flex justify-center gap-2 mt-8">
+        {testimonials.map((_, i) => (
+          <button
+            data-dot={i}
+            aria-label={`Go to testimonial ${i + 1}`}
+            class={`w-2.5 h-2.5 rounded-full transition-colors duration-300 ${i === 0 ? 'bg-[#E8856A]' : 'bg-gray-300'}`}
+          />
+        ))}
+      </div>
+
     </div>
 
   </div>
 </section>
+
+<script>
+  const slides = document.querySelectorAll('[data-slide]');
+  const dots = document.querySelectorAll('[data-dot]');
+  let current = 0;
+  let timer: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0', 'pointer-events-none');
+    dots[current].classList.remove('bg-[#E8856A]');
+    dots[current].classList.add('bg-gray-300');
+
+    current = ((index % slides.length) + slides.length) % slides.length;
+
+    slides[current].classList.add('opacity-100');
+    slides[current].classList.remove('opacity-0', 'pointer-events-none');
+    dots[current].classList.add('bg-[#E8856A]');
+    dots[current].classList.remove('bg-gray-300');
+  }
+
+  function startTimer() {
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  function resetTimer() {
+    clearInterval(timer);
+    startTimer();
+  }
+
+  document.getElementById('prev-btn')!.addEventListener('click', () => { goTo(current - 1); resetTimer(); });
+  document.getElementById('next-btn')!.addEventListener('click', () => { goTo(current + 1); resetTimer(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); resetTimer(); }));
+
+  const carousel = document.getElementById('testimonial-carousel')!;
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', startTimer);
+
+  startTimer();
+</script>
