@@ -55,3 +55,11 @@ Fonts are also defined as theme tokens: `--font-nunito` (headings) and `--font-i
 ### Content
 
 Data (services list, testimonials list) is defined inline inside the relevant component's frontmatter — there is no separate data layer or CMS.
+
+## Deployment
+
+The site is deployed via **Cloudflare Pages** with git integration.
+
+`wrangler.toml` configures the Pages project (`pages_build_output_dir = "dist"`). Do **not** add a `[build]` section to `wrangler.toml` — it is unsupported for Pages projects and will cause deployment failures.
+
+Cloudflare Pages handles deployment automatically after the build completes. No custom deploy command is needed in the Pages dashboard settings.
