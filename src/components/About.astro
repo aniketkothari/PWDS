@@ -1,4 +1,5 @@
 ---
+import Services from './Services.astro';
 ---
 
 <section id="about" class="py-20 px-6 bg-[#EEF7F4]">
@@ -8,7 +9,7 @@
       <!-- Left Column — Image -->
       <div class="aspect-[3/4] overflow-hidden rounded-3xl shadow-lg">
         <img
-          src="/images/dr-shilpa.png"
+          src="/images/IMG_5113.jpg"
           alt="Dr. Shilpa Pandya"
           class="w-full h-full object-cover object-top"
         />
@@ -51,12 +52,29 @@
             Lifetime Member · Indian Academy of Paediatrics (IAP)
           </span>
         </div>
+
+        <!-- Work Experience -->
+        <div class="mt-4">
+          <p class="text-[#706C82] text-sm font-medium mb-3">Work experience with</p>
+          <div class="flex flex-wrap items-center gap-6">
+            <img src="/images/apolloLogo.webp" alt="Apollo Hospitals" class="h-10 object-contain" />
+            <img src="/images/Jeevika-2-1.png.bv_resized_mobile.png.bv.webp" alt="Jeevika Hospital" class="h-10 object-contain" />
+            <img src="/images/unnamed.png" alt="Hospital" class="h-10 object-contain" />
+          </div>
+        </div>
       </div>
 
     </div>
 
+  </div>
+</section>
+
+<Services />
+
+<section id="about-continued" class="py-20 px-6 bg-[#EEF7F4]">
+  <div class="max-w-6xl mx-auto">
     <!-- Keep away your worries subsection -->
-    <div class="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
       <div class="flex flex-col gap-5">
         <h3 class="text-2xl font-bold text-[#2E2B3D]" style="font-family: 'Nunito', sans-serif;">
           Keep away your worries
