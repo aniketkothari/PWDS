@@ -4,21 +4,28 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Services from '../components/Services.astro';
+import BookAppointment from '../components/BookAppointment.astro';
+import KeepAwayWorries from '../components/KeepAwayWorries.astro';
 import Location from '../components/Location.astro';
 import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <BaseLayout
-  title="Paediatric Wellness by Dr. Shilpa"
-  description="Compassionate, evidence-based paediatric care in a warm, welcoming environment. Because every child deserves to grow up healthy and happy."
+  title="Dr. Shilpa Pandya – Paediatrician in Hoodi, Bengaluru | Paediatric Wellness"
+  description="Compassionate, evidence-based paediatric care in Hoodi, Bengaluru. Dr. Shilpa Pandya – MD Paediatrics with 15+ years of experience. Book a consultation at ITPL Main Road, Basavanna Nagar."
 >
   <Navbar />
   <main>
     <Hero />
     <About />
+    <Services />
+    <BookAppointment />
+    <KeepAwayWorries />
     <Location />
     <Testimonials />
+    <FAQ />
   </main>
   <Footer />
 </BaseLayout>

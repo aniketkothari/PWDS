@@ -1,0 +1,36 @@
+---
+---
+
+<section id="book-appointment-section" class="py-20 px-6 bg-[#EEF7F4]">
+  <div class="max-w-6xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <p class="text-[#E8856A] text-sm font-medium tracking-widest uppercase mb-3">Schedule a Visit</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#2E2B3D]" style="font-family: 'Nunito', sans-serif;">
+        Book an Appointment
+      </h2>
+      <p class="mt-4 text-[#706C82] max-w-xl mx-auto">
+        Choose a convenient time to meet Dr. Shilpa Pandya. Same-day slots available for urgent concerns.
+      </p>
+    </div>
+
+    <!-- Widget Container -->
+    <div id="book-appointment" class="w-full"></div>
+
+  </div>
+</section>
+
+<script>
+  window.ekaconfig = {
+    bid: "7177091567576023",
+    allowAnonymousBooking: true,
+    containerID: '#book-appointment'
+  };
+  (function (w, d) {
+    var s = d.createElement("script");
+    s.src = "https://elixir-dr.eka.care/appointment-widget-init-script/main/eka-widget-init.js";
+    s.async = true;
+    d.head.appendChild(s);
+  })(window, document);
+</script>

@@ -1,0 +1,123 @@
+---
+const faqs = [
+  {
+    question: 'How often should I bring my child to the paediatrician?',
+    answer:
+      'During the first year, visits are recommended at birth, 2–4 days after discharge, and at 1, 2, 4, 6, 9, and 12 months. From age 1–4, a check-up every 6 months is advised; from age 4 onwards, an annual well-child visit is recommended. These visits track growth, development, and vaccination status — even when your child is not unwell.',
+  },
+  {
+    question: 'What vaccines does my baby need in the first year?',
+    answer:
+      'Based on the IAP 2024–25 schedule: at birth — BCG, Hepatitis B (Dose 1), OPV 0; at 6, 10 and 14 weeks — DTwP/DTaP, IPV, Hib, Hepatitis B, Rotavirus, PCV; at 6 months — OPV and Influenza (2 doses, 1 month apart); at 9–12 months — MMR, Typhoid Conjugate, Hepatitis A, and Varicella. Your paediatrician will guide you through the full schedule.',
+  },
+  {
+    question: 'What is the difference between the Government (NIS) and IAP vaccine schedule?',
+    answer:
+      "India's National Immunisation Schedule (NIS) is free and covers essential vaccines like BCG, OPV, DPT, Hepatitis B, and Measles-Rubella. The IAP schedule adds vaccines not yet in the NIS — including Pneumococcal Conjugate (PCV), Rotavirus, Varicella (chickenpox), Hepatitis A, Typhoid Conjugate, and HPV. The IAP schedule is updated annually and reflects the latest global evidence.",
+  },
+  {
+    question: 'Are vaccines safe? What side effects should I expect?',
+    answer:
+      'All IAP-recommended vaccines are clinically tested and approved by India\'s CDSCO. Common, temporary reactions include mild fever (37.5–38.5°C), redness at the injection site, and irritability lasting 24–48 hours — these are signs the immune system is responding. Serious adverse events are rare. Never skip a vaccine due to a mild cold; consult your paediatrician if unsure.',
+  },
+  {
+    question: 'When should I start solid foods for my baby?',
+    answer:
+      'Exclusive breastfeeding is recommended for the first 6 months. Start complementary foods around 6 months when your baby can sit with support, has lost the tongue-thrust reflex, and shows interest in food. Begin with soft, single-ingredient foods — mashed dal, banana, or vegetable purées — introducing one new food every 3–4 days. Continue breastfeeding alongside solids until at least 2 years.',
+  },
+  {
+    question: 'What developmental milestones should I watch for?',
+    answer:
+      'Key IAP red flags — consult your paediatrician immediately if your child: is not smiling socially by 3 months; not sitting without support by 9 months; not crawling or pulling to stand by 12 months; not walking independently by 18 months; not using 2-word phrases by 24 months; or loses any previously acquired skill at any age (regression is always a red flag).',
+  },
+  {
+    question: 'My newborn has yellow skin — is jaundice dangerous?',
+    answer:
+      'Neonatal jaundice affects ~60% of term newborns and is usually normal (physiological jaundice appearing Day 2–3, resolving by Day 7–10). However, seek immediate medical attention if jaundice appears within 24 hours of birth, bilirubin levels are very high, or jaundice persists beyond 2 weeks. Untreated severe jaundice can cause brain damage. Phototherapy ("bili lights") is safe and effective.',
+  },
+  {
+    question: 'My child has a fever — when should I see the doctor immediately?',
+    answer:
+      'Go to your paediatrician immediately if: your child is under 3 months with any fever; temperature exceeds 39.5°C (103°F); fever lasts more than 3 days; your child has difficulty breathing, a stiff neck, a non-fading rash, seizures, or is unusually drowsy. For a well-appearing child over 6 months, weight-based paracetamol and fluids are first steps. Never give aspirin to children.',
+  },
+  {
+    question: 'How do I manage diarrhoea at home, and when is it an emergency?',
+    answer:
+      'Most childhood diarrhoea is viral and self-limiting (3–7 days). Start Oral Rehydration Solution (ORS) immediately in small, frequent sips — continue regular feeds. Seek urgent care if there is blood or mucus in the stool, signs of dehydration (sunken eyes, dry mouth, no tears, reduced urination), diarrhoea lasting more than 3–5 days, or the child is under 6 months. Never give anti-diarrhoeal medications to children.',
+  },
+  {
+    question: 'Why does my child keep falling sick with colds every few weeks?',
+    answer:
+      'Children in daycare or preschool can have 8–12 viral upper respiratory infections per year — this is developmentally normal. Their immune systems are encountering new viruses for the first time. This frequency typically reduces by age 6–7. Ensure full vaccination (including annual flu vaccine), a balanced diet, adequate sleep, and regular handwashing. Antibiotics are not needed for viral colds.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<section id="faq" class="py-20 px-6 bg-white">
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <p class="text-[#E8856A] text-sm font-medium tracking-widest uppercase mb-3">Parents ask us</p>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-[#2E2B3D]" style="font-family: 'Nunito', sans-serif;">
+        Frequently Asked Questions
+      </h2>
+      <p class="mt-4 text-[#706C82] max-w-xl mx-auto">
+        Answers to common questions about paediatric care, vaccinations, nutrition, and child development — based on IAP guidelines.
+      </p>
+    </div>
+
+    <!-- Accordion -->
+    <div class="flex flex-col divide-y divide-gray-100 border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+      {faqs.map((faq, i) => (
+        <details class="group bg-white" open={i === 0}>
+          <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none hover:bg-[#EEF7F4] transition-colors">
+            <span class="font-semibold text-[#2E2B3D] text-base leading-snug" style="font-family: 'Nunito', sans-serif;">
+              {faq.question}
+            </span>
+            <!-- Plus / Minus icon -->
+            <span class="flex-shrink-0 w-7 h-7 rounded-full bg-[#EEF7F4] group-open:bg-[#E8856A] flex items-center justify-center transition-colors">
+              <svg class="w-3.5 h-3.5 text-[#E8856A] group-open:text-white transition-colors" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path class="group-open:hidden" d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path class="hidden group-open:block" d="M1 7h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-5 pt-1 text-[#706C82] leading-relaxed text-sm">
+            {faq.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <p class="text-center mt-8 text-[#706C82] text-sm">
+      Have a question not listed here?{' '}
+      <a
+        href="https://www.eka.care/doctor/shilpa-pandya-1771054459"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-[#E8856A] font-medium hover:underline"
+      >
+        Book a consultation
+      </a>{' '}
+      with Dr. Shilpa.
+    </p>
+
+  </div>
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />

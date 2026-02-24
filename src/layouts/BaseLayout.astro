@@ -4,23 +4,91 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
 }
 
 const {
-  title = 'Paediatric Wellness by Dr. Shilpa',
-  description = 'Compassionate, evidence-based paediatric care in a warm, welcoming environment. Because every child deserves to grow up healthy and happy.',
+  title = 'Dr. Shilpa Pandya – Paediatrician in Hoodi, Bengaluru | Paediatric Wellness',
+  description = 'Compassionate, evidence-based paediatric care in Hoodi, Bengaluru. Dr. Shilpa Pandya – MD Paediatrics with 15+ years of experience. Book a consultation at ITPL Main Road, Basavanna Nagar.',
+  canonicalUrl = 'https://paediatricwellness.in',
+  ogImage = 'https://paediatricwellness.in/images/PWDS_Colour Logo.png',
 } = Astro.props;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalBusiness',
+  name: 'Paediatric Wellness by Dr. Shilpa',
+  description: 'Compassionate, evidence-based paediatric care for children from infancy through adolescence.',
+  url: 'https://paediatricwellness.in',
+  telephone: '+918123836464',
+  email: 'drshilpapandya@gmail.com',
+  image: 'https://paediatricwellness.in/images/PWDS_Colour Logo.png',
+  medicalSpecialty: 'Pediatrics',
+  priceRange: '₹₹',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Second Floor, ITPL Main Rd, above Lenskart Store, Basavanna Nagar',
+    addressLocality: 'Hoodi',
+    addressRegion: 'Karnataka',
+    postalCode: '560048',
+    addressCountry: 'IN',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 12.9887,
+    longitude: 77.6957,
+  },
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '17:00',
+    closes: '18:30',
+  },
+  hasMap: 'https://maps.app.goo.gl/HUBpJb5QC9LXDe3W7',
+  sameAs: ['https://www.eka.care/doctor/shilpa-pandya-1771054459'],
+  founder: {
+    '@type': 'Physician',
+    name: 'Dr. Shilpa Pandya',
+    jobTitle: 'Paediatrician & Consultant',
+    description: 'MD Paediatrics, Gandhi Medical College. Lifetime Member, Indian Academy of Paediatrics.',
+  },
+};
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
+
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_IN" />
+    <meta property="og:site_name" content="Paediatric Wellness by Dr. Shilpa" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
