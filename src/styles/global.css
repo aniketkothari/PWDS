@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #F5F0EA;
+  --color-cream: #F8F7FB;
   --color-coral: #E8856A;
-  --color-charcoal: #2D2A26;
-  --color-muted: #7A7570;
+  --color-charcoal: #2E2B3D;
+  --color-muted: #706C82;
   --color-card: #FFFFFF;
   --color-card-bg: #EEF7F4;
 
@@ -13,8 +13,8 @@
 }
 
 html {
-  background-color: #F5F0EA;
-  color: #2D2A26;
+  background-color: #F8F7FB;
+  color: #2E2B3D;
   font-family: 'Inter', sans-serif;
   scroll-behavior: smooth;
 }
